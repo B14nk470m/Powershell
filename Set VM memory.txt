@@ -1,0 +1,2 @@
+$vm = get-vm | where {$_.Name -like "*xp*"} 
+Set-VMMemory $vm -DynamicMemoryEnabled $false -StartupBytes 2GB 

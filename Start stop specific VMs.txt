@@ -1,0 +1,2 @@
+get-vm | where {$_.name -eq '*server*'} |stop-vm
+get-vm | where {$_.name -eq '*server*'} |start-vm #Change the name in between the ' ' to the name you want or part of the name 

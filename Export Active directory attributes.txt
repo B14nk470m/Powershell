@@ -1,0 +1,1 @@
+Get-ADUser -filter * -properties * | Select-Object Name,GivenName,SurName,UserPrincipalName,sAMAccountName,DistinguishedName,mail,@{L = "ProxyAddresses"; E = { $_.ProxyAddresses -join ";"}},Homedirectory,homedrive,Enabled,@{n='MemberOf'; e= { ( $_.memberof | % { (Get-ADObject $_).Name }) -join "," }}|export-csv C:\TSG\Filteredusers.csv -NoTypeInformation -Encoding UTF8

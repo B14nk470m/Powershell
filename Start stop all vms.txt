@@ -1,0 +1,2 @@
+get-vm | where {$_.state -eq 'running'} |stop-vm
+get-vm | where {$_.state -eq 'stopped'} |start-vm

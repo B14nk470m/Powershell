@@ -1,0 +1,8 @@
+#Set Out of office reply and forward email
+
+#Change below between " " to what the message needs to say using HTML formatting , #For multi line HTML put @' at the start then press enter and copy the multi line html in then at the end press enter then put '@ and then enter 
+$reply = "<html><head></head><body><p>Thank you for your mail, for all enquiries please contact test@test.com in the first instance.</br><br></br>Many thanks in advance,<br>Best regards</br><br></br></p></body></html>"
+
+Set-MailboxAutoReplyConfiguration -Identity test@test.com -AutoReplyState enabled -ExternalMessage $reply -InternalMessage "$reply"
+
+Set-Mailbox <Mailbox> -ForwardingAddress <Destination Recipient E-mail address> -DeliverToMailboxAndForward $True

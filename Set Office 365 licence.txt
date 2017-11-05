@@ -1,0 +1,12 @@
+#If trying to set multiple mailboxes and import CSV doesn't work Arrays can be used as below 
+$UserCredential = Get-Credential
+Connect-MsolService -Credential $UserCredential
+Set-MSOLUser -All | select userprincipalname,islicensed,{$_.Licenses.AccountSkuId}| Export-CSV c:\userlist.csv -NoTypeInformation
+Get-MsolAccountSku
+Get-MsolUser | Where-Object { $_.isLicensed -eq "TRUE" }
+
+$mailbox = = New-Object System.Collections.ArrayList
+$mailbox.add("BirminghamBCA") - add username in the quotes
+Set-MsolUserLicense -UserPrincipalName "$array" -AddLicenses "New licence string goes here" -RemoveLicenses "Old License goes here"
+
+https://pwrshell.net/back-to-basics-arrays/
